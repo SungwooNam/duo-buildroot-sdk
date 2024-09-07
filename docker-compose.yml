@@ -1,0 +1,23 @@
+# 
+# docker build -f ./docker/builder.dockerfile . -t duo-builder
+# docker-compose up -d duo-builder
+# docker-compose exec duo-builder  bash
+# 
+
+version: '3'
+
+services:
+  duo-builder:
+    image: duo-builder
+    user: duo
+    privileged: true
+    volumes:
+      - .:/home/duo/work
+      - ~/.ssh:/home/duo/.ssh
+    environment:
+      - MY=my
+    working_dir: /home/duo/work
+    command: |
+      bash -c "
+      tail -f /dev/null
+      "
