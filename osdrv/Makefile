@@ -34,7 +34,7 @@ exclude_dirs =
 SUBDIRS := $(filter-out $(exclude_dirs), $(SUBDIRS))
 
 # prepare ko list
-KO_LIST = wiegand-gpio
+KO_LIST = wiegand-gpio dialect
 
 
 OTHERS :=
@@ -67,6 +67,9 @@ wireless:
 	@$(call MAKE_EXT_KO, extdrv/${@})
 
 wiegand-gpio:
+	@$(call MAKE_EXT_KO, extdrv/${@})
+
+dialect:
 	@$(call MAKE_EXT_KO, extdrv/${@})
 
 cp_ext_wireless:
